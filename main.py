@@ -54,15 +54,16 @@ async def help(ctx: Context):
     message = (
         "- Join the game using !join.\n"
         "- To leave, use !leave.\n"
-        "- Once everyone's ready, the game master can start the game with !start.\n"
+        "- Once everyone's ready, anyone can start the game with !start.\n"
         "- The game master can end the game with !end.\n"
-        "- Each player takes their turn trying to determine their role by asking yes or no questions to the group.\n"
+        "- Each player takes turns trying to determine their role by asking yes or no questions to the other players.\n"
         "- If it is not your turn, you must answer and can only do so with \"yes\" or \"no\". You cannot lie.\n"
         "- The winner is whomever has the most fun.\n"
         "**Important notes**\n"
-        "- After the game starts, no new players can join.\n"
-        "- Role assignments do not change once sent.\n"
-        "- All role information should be kept private unless for a joke that is *very* funny."
+        "- You will need to allow DMs from users of mutual servers so the bot can DM you.\n"
+        "- After the game starts, no new players can join without resetting the game.\n"
+        "- Role assignments cannot change once the game has started.\n"
+        "- All role information should be kept private until revealed through gameplay with the exception of jokes that are *very* funny."
     )
     await ctx.reply(message)
     return
