@@ -19,6 +19,7 @@ logger.addHandler(log_handler)
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 bot.remove_command("help") # replacing the default with our own
@@ -128,11 +129,9 @@ async def start(ctx: Context):
         logger.error(f"Start attempted before game initialized by {ctx.author.name}!")
         return
     
-    try:
-        game.start()
-    except:
+    if not game.start():
         await ctx.reply("Not enough players! Canceling game start.")
-        logger.error(f"Game start attempted with too few members by {ctx.author.name}")
+        logger.error(f"Game start attempted with too few members ({len(game.get_players())}) by {ctx.author.name}")
         return
     
     players = game.get_players()

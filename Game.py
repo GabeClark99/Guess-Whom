@@ -48,12 +48,12 @@ class Game:
         board.pop(player, None)
         return board
 
-    def start(self) -> None:
+    def start(self) -> bool:
         if len(self.players) < 2:
-            raise Exception(f"Not enough players ({len(self.players)})!")
+            return False
         
         self.assign_roles()
-        return
+        return True
     
     def end(self) -> None:
         self.players.clear()
